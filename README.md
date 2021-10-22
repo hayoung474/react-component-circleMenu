@@ -15,3 +15,8 @@ https://developer.mozilla.org/ko/docs/Web/CSS/:checked
 https://supiz.tistory.com/65
 https://ofcourse.kr/css-course/visibility-%EC%86%8D%EC%84%B1
 https://codepen.io/didac/pen/ZKZpmQ
+
+일단은,,, useState 변수를 만들어 클릭 상태를 저장하고
+그에 맞는 css를 보여주도록 했는데
+
+추후에 input check box랑 label을 사용해서 새로 짜보는 것도 좋을듯

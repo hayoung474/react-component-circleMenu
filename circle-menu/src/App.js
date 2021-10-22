@@ -15,14 +15,15 @@ function App() {
             setToggle(!toggle);
           }}
           visible={toggle}
+          title="메뉴 열기 및 닫기"
         ></ToggleButton>
-        <SubButton visible={toggle} one>
+        <SubButton visible={toggle} one onClick={()=>{alert("태호오빠 소개 모달")}} title="블로그 소개">
           <BsInfoLg size="24" color="white" />
         </SubButton>
-        <SubButton visible={toggle} two>
+        <SubButton visible={toggle} two onClick={()=>{alert("치팅사이트 목록 모달")}} title="각종 참고 및 치팅 사이트">
           <FaInternetExplorer size="24" color="white" />
         </SubButton>
-        <SubButton visible={toggle} three>
+        <SubButton visible={toggle} three onClick={()=>{parent.location='mailto:jhy901@naver.com'}} title="블로그 주인에게 이메일 보내기">
           <AiOutlineMail size="24" color="white" />
         </SubButton>
       </div>
@@ -49,7 +50,7 @@ const ToggleButton = styled.button`
   &:after {
     position: absolute;
     top: 23px;
-    right: 35px;
+    right: 36px;
     content: " ";
     height: 35px;
     width: 5px;
