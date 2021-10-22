@@ -1,24 +1,59 @@
-import { useState, useMemo } from "react";
+import { useState, useMemo, useCallback } from "react";
 import styled, { css } from "styled-components";
+import { FaInternetExplorer } from "react-icons/fa";
+import { BsInfoLg } from "react-icons/bs";
+import { AiOutlineMail } from "react-icons/ai";
+
+function App() {
+  const [toggle, setToggle] = useState(false);
+
+  return useMemo(() => {
+    return (
+      <div>
+        <ToggleButton
+          onClick={() => {
+            setToggle(!toggle);
+          }}
+          visible={toggle}
+        ></ToggleButton>
+        <SubButton visible={toggle} one>
+          <BsInfoLg size="24" color="white" />
+        </SubButton>
+        <SubButton visible={toggle} two>
+          <FaInternetExplorer size="24" color="white" />
+        </SubButton>
+        <SubButton visible={toggle} three>
+          <AiOutlineMail size="24" color="white" />
+        </SubButton>
+      </div>
+    );
+  }, [toggle]);
+}
+
+export default App;
 
 const ToggleButton = styled.button`
   position: absolute;
   z-index: 2;
   right: 1em;
   bottom: 1em;
-  background-color: tomato;
+  background-color: #f44336;
   height: 5rem;
   width: 5rem;
   border-radius: 50%;
   border: none;
+  box-shadow: 5px 5px 7px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+
   &:before,
   &:after {
     position: absolute;
-    top: 21px;
+    top: 23px;
+    right: 35px;
     content: " ";
-    height: 40px;
-    width: 4px;
-    border-radius: 10px;
+    height: 35px;
+    width: 5px;
+    border-radius: 15px;
     background-color: white;
   }
   &:before {
@@ -38,7 +73,6 @@ const SubButton = styled.button`
   right: 1em;
   bottom: 1em;
   opacity: ${(props) => (props.visible === true ? 1 : 0)};
-  background-color: blueviolet;
   height: 4.5rem;
   width: 4.5rem;
   border-radius: 50%;
@@ -47,53 +81,29 @@ const SubButton = styled.button`
   transition-property: all;
   transition-duration: 0.35s;
   transition-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.275);
-
+  box-shadow: 5px 5px 7px rgba(0, 0, 0, 0.1);
+  &:hover {
+    height: 5rem;
+    width: 5rem;
+  }
   ${(props) =>
     props.one &&
     css`
-      background-color: mediumorchid;
+      background-color: #0192ca;
       transform: translateY(-8em);
     `};
   ${(props) =>
     props.two &&
     css`
-      background-color: slateblue;
+      background-color: #62c7fa;
       transform: translateX(-6em) translateY(-6em);
       transition-delay: 0.1s;
     `};
   ${(props) =>
     props.three &&
     css`
-      background-color: purple;
+      background-color: #b0f1ea;
       transform: translateX(-8em);
       transition-delay: 0.2s;
     `};
 `;
-
-function App() {
-  const [toggle, setToggle] = useState(false);
-
-  return useMemo(() => {
-    return (
-      <div>
-        <ToggleButton
-          onClick={() => {
-            setToggle(!toggle);
-          }}
-          visible={toggle}
-        ></ToggleButton>
-        <SubButton visible={toggle} one>
-          버튼1
-        </SubButton>
-        <SubButton visible={toggle} two>
-          버튼2
-        </SubButton>
-        <SubButton visible={toggle} three>
-          버튼3
-        </SubButton>
-      </div>
-    );
-  }, [toggle]);
-}
-
-export default App;
