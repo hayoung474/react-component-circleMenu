@@ -39,8 +39,8 @@ const ToggleButton = styled.button`
   right: 1em;
   bottom: 1em;
   background-color: #f44336;
-  height: 5rem;
-  width: 5rem;
+  height: 80px;
+  width: 80px;
   border-radius: 50%;
   border: none;
   box-shadow: 5px 5px 7px rgba(0, 0, 0, 0.1);
@@ -48,14 +48,14 @@ const ToggleButton = styled.button`
 
   &:before,
   &:after {
-    position: absolute;
-    top: 23px;
-    right: 36px;
-    content: " ";
+    position:absolute;
+    top:22px;
     height: 35px;
     width: 5px;
+    left:38px;
     border-radius: 15px;
     background-color: white;
+    content:""
   }
   &:before {
     transform: ${(props) =>
@@ -74,8 +74,8 @@ const SubButton = styled.button`
   right: 1em;
   bottom: 1em;
   opacity: ${(props) => (props.visible === true ? 1 : 0)};
-  height: 4.5rem;
-  width: 4.5rem;
+  height: 70px;
+  width: 70px;
   border-radius: 50%;
   border: none;
   transform: rotateZ(90deg);
